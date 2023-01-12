@@ -24,10 +24,10 @@ function pngquant(file, options, printF) {
 	for (var key in options) {
 		if (!options.hasOwnProperty(key)) continue;
 		/* Prepend -- to option key name */
-		if (options[key]) {
-			args.push("--" + key);
-			args.push(options[key]);
-		}
+    const argv = options[key]
+    const arg = ['--' + key]
+    argv && arg.push(argv)
+    args.push(arg.join('='))
 	}
 
 	/**

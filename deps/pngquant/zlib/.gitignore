@@ -23,4 +23,7 @@
 /zlib.pc
 /configure.log
 
+/ztest*.js
+/Makefile
+
 .DS_Store

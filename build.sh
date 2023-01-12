@@ -47,9 +47,18 @@ emmake make
 mv pngquant pngquant.bc
 
 # Time to rumble. Create our mighty js file
-emcc -03 pngquant.bc  -s TOTAL_MEMORY=335544323  -s USE_LIBPNG=1 -s USE_ZLIB=1  --pre-js ../../pre.js --post-js ../../post.js   -o pngquant.js
+# emcc -03 pngquant.bc  -s TOTAL_MEMORY=335544320  -s USE_LIBPNG=1 -s USE_ZLIB=1  --pre-js ../../pre.js --post-js ../../post.js -s WASM=1  -o pngquant.js
+
+# wasm
+emcc -03 pngquant.bc  -s TOTAL_MEMORY=335544320  -s USE_LIBPNG=1  -s USE_ZLIB=1  --proxy-to-worker -s WASM=1  -o pngquant.js
+# asm
+#emcc -03 pngquant.bc  -s TOTAL_MEMORY=335544320  -s USE_LIBPNG=1  -s USE_ZLIB=1  --pre-js ../../pre.js --post-js ../../post.js  --proxy-to-worker -s WASM=0  -o pngquant.asm.js
+
 
 # copy our js file to dist folder
-mv pngquant.js $DIST/pngquant.js
+mv pngquant.js $DIST/
+mv pngquant.worker.js $DIST/
+mv pngquant.wasm $DIST/
+mv pngquant.asm.js $DIST/
 
 echo "pngquant.js has been successfully compiled  and placed in $DIST"
