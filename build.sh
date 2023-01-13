@@ -22,11 +22,11 @@ mkdir -p $DIST
 # emscripten folks. They are using libpng-16 so its emperative to use this version
 # when linking the header files to avoid disparities later
 
-apt-get install -y libpng16-dev
+apt-get install -y libpng-dev
 
 # compile zlib
 cd $DIR/deps/pngquant/zlib
-emconfigure ./configure  --64
+emconfigure ./configure # --64
 emmake make
 
 # change dir to deps

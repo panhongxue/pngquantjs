@@ -401,7 +401,8 @@ if [ "$HAS_LIBPNG" -eq 0 ]; then
                     LIBPNGSO=$(find_f "${DIR[1]}" "libpng${PNGH_MAJMIN}.$SOLIBSUFFIX*")
                     if [ -n "$LIBPNGSO" ]; then
                         cflags "-I${PNGH%/*}"
-                        lflags "-L${LIBPNGSO%/*} -lpng${PNGH_MAJMIN}"
+                        # lflags "-L${LIBPNGSO%/*} -lpng${PNGH_MAJMIN}"
+                        lflags "-lpng"
                         status "libpng" "shared (${PNGH_STRING})"
                         HAS_LIBPNG=1
                         break

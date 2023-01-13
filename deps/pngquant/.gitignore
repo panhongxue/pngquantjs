@@ -4,6 +4,7 @@
 *.lo
 *.pbxproj
 *.pbxuser
+*.wasm
 build
 DerivedData
 pngquant
