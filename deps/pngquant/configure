@@ -26,6 +26,7 @@ EXTRA_LDFLAGS=
 
 # make gcc default compiler unless CC is already set
 CC=${CC:-gcc}
+SKIP_CC_CHECK=0
 
 help() {
     printf "%4s %s\n" "" "$1"
@@ -58,6 +59,7 @@ fi
     # Can be set before or after configure. Latter overrides former.
     CC=*)
         CC=${i#*=}
+        SKIP_CC_CHECK=1
         ;;
     CFLAGS=*)
         CFLAGS=${i#*=}
