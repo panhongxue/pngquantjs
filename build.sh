@@ -33,7 +33,7 @@ emmake make
 cd $DIR/deps/pngquant
 
 # start configuring script
-emconfigure ./configure --disable-sse --with-libpng=/usr/include --extra-cflags=--proxy-to-worker #--enable-debug
+emconfigure ./configure --disable-sse --with-libpng=/usr/include --extra-cflags="-sTOTAL_MEMORY=335544320 --proxy-to-worker " #--enable-debug
 
 # At this point just make sure that config.mk file points correct version of
 # libpng
