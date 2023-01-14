@@ -1147,7 +1147,8 @@ LIQ_NONNULL static void set_rounded_palette(liq_palette *const dest, colormap *c
         map->palette[x].acolor = rgba_to_f(gamma_lut, px); /* saves rounding error introduced by to_rgb, which makes remapping & dithering more accurate */
 
         if (!px.a && !map->palette[x].fixed) {
-            px.r = 71; px.g = 112; px.b = 76;
+            // px.r = 71; px.g = 112; px.b = 76;
+            px.r = 255; px.g = 255; px.b = 255;
         }
 
         dest->entries[x] = (liq_color){.r=px.r,.g=px.g,.b=px.b,.a=px.a};
