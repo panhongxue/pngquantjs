@@ -22,7 +22,7 @@ mkdir -p $DIST
 # emscripten folks. They are using libpng-16 so its emperative to use this version
 # when linking the header files to avoid disparities later
 
-apt-get install -y libpng-dev
+apt-get install -y libpng-dev make
 
 # compile zlib
 cd $DIR/deps/pngquant/zlib
@@ -33,7 +33,7 @@ emmake make
 cd $DIR/deps/pngquant
 
 # start configuring script
-emconfigure ./configure --disable-sse --with-libpng=/usr/include --extra-cflags="-sTOTAL_MEMORY=104857600 --proxy-to-worker " #--enable-debug
+emconfigure ./configure --disable-sse --with-libpng=/usr/include --extra-cflags="-sUSE_LIBPNG=1 -sTOTAL_MEMORY=104857600 --proxy-to-worker " #--enable-debug
 
 # At this point just make sure that config.mk file points correct version of
 # libpng
